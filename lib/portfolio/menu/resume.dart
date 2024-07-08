@@ -11,9 +11,15 @@ class _ResumeState extends State<Resume> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: double.infinity,
+      height: 600,
       width: double.infinity,
-      color: Colors.purple,
+      decoration: BoxDecoration(
+        color: Colors.red,
+        borderRadius: BorderRadius.only(
+          // bottomLeft: Radius.circular(22),
+          // bottomRight: Radius.circular(22),
+        ),
+      ),
       child: Text("Resume"),
     );  }
 }

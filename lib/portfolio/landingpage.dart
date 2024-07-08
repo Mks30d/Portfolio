@@ -5,12 +5,18 @@ import 'package:portfolio/portfolio/rightportion.dart';
 import 'package:portfolio/portfolio/sidebar.dart';
 
 class LandingPage extends StatefulWidget {
+  // Color textColor = Color(0xfffafafa);
+  // Color textColor1 = Color(0xfff8f8f8);
+  // Color primaryColor = Color(0xff1e1e1f);
+  // Color secondaryColor = Color(0xff363637);
+  // Color blueColor = Colors.blueAccent;
+  // Color bgColor = Color(0xff121212);
+  // Color borderColor = Color(0xff444444);
   Color textColor = Color(0xfffafafa);
-  Color textColor1 = Color(0xfff8f8f8);
   Color primaryColor = Color(0xff1e1e1f);
-  Color secondaryColor = Color(0xff363637);
+  Color secondaryColor = Color(0xff373737);
   Color blueColor = Colors.blueAccent;
-  Color bgColor = Color(0xff121212);
+  Color bgColor = Color(0xff111111);
   Color borderColor = Color(0xff444444);
 
   @override
@@ -22,13 +28,10 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: widget.primaryColor,
+        color: widget.bgColor,
         child: Row(children: [
           //----------------left------------------
-          Expanded(
-            flex: 1,
-            child: LeftPortion(),
-          ),
+          LeftPortion(),
 
           // SizedBox(
           //   width: 10,
