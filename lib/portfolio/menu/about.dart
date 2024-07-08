@@ -11,9 +11,15 @@ class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: double.infinity,
+      height: 600,
       width: double.infinity,
-      color: Colors.blue,
+      decoration: BoxDecoration(
+        color: Colors.blue,
+        borderRadius: BorderRadius.only(
+          // bottomLeft: Radius.circular(22),
+          // bottomRight: Radius.circular(22),
+        ),
+      ),
       child: Text("About"),
     );  }
 }

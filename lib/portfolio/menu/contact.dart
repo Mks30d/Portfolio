@@ -11,9 +11,15 @@ class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: double.infinity,
+      height: 600,
       width: double.infinity,
-      color: Colors.green,
+      decoration: BoxDecoration(
+        color: Colors.green,
+        borderRadius: BorderRadius.only(
+          // bottomLeft: Radius.circular(22),
+          // bottomRight: Radius.circular(22),
+        ),
+      ),
       child: Text("Contact"),
     );
   }

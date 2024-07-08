@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Color textPrimaryColor = Color(0xffe7e7e7);
 Color textSecondaryColor = Color(0xff8e8e8f);
@@ -39,32 +40,80 @@ class _LeftPortionState extends State<LeftPortion> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 50,
-              height: 50,
-              color: secondaryColor,
-              child: CircleAvatar(
-                child: Image(image: AssetImage("assets/images/mks.jpg"),),
+              height: 70,
+              width: 70,
+              decoration: BoxDecoration(
+                color: secondaryColor,
+                borderRadius: BorderRadius.circular(22)
               ),
+              // child: CircleAvatar(
+              //   // child: Image.asset("assets/images/mks.jpeg"),
+              // ),
             ),
             Column(
               children: [
                 Text(
-                  "MANISH KUMAR",
+                  "Manish Kumar Sharma",
                   style: TextStyle(
                       color: textPrimaryColor,
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
-                Text(
-                  "SHARMA",
-                  style: TextStyle(
-                      color: textPrimaryColor,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
+                // Text(
+                //   "SHARMA",
+                //   style: TextStyle(
+                //       color: textPrimaryColor,
+                //       fontSize: 20,
+                //       fontWeight: FontWeight.bold),
+                // ),
+                SizedBox(
+                  height: 10,
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                        onTap: () {
+                          launchUrl(
+                              Uri.parse("https://www.linkedin.com/in/mks30d"),
+                              mode: LaunchMode.externalApplication);
+                        },
+                        child: Image(
+                          image: AssetImage("assets/images/linkedin.png"),
+                          height: 25,
+                        )),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        launchUrl(Uri.parse("https://github.com/Mks30d"),
+                            mode: LaunchMode.externalApplication);
+                      },
+                      child: Image(
+                        image: AssetImage("assets/images/github.png"),
+                        height: 25,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        launchUrl(
+                          Uri.parse("https://leetcode.com/u/Mks30d/"),
+                          mode: LaunchMode.externalApplication,
+                        );
+                      },
+                      child: Image(
+                        image: AssetImage("assets/images/leetcode.png"),
+                        height: 25,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
-
             Divider(
               // height: 2,
               thickness: 1,
@@ -72,23 +121,40 @@ class _LeftPortionState extends State<LeftPortion> {
               endIndent: 15,
               color: secondaryColor,
             ),
+            InkWell(
+              onTap: (){
+                launchUrl(
+                    Uri(scheme: "mailto", path: "manish30d@gmail.com"),
+                    mode: LaunchMode.externalApplication
+                );
+              },
+              child: CustomContainer(
+                title: "Email",
+                subtitle: "manish30d@gmail.com",
+                icon: Icon(
+                  Icons.email_outlined,
+                  color: blueColor,
+                ),
+              ),
+            ),
 
-            CustomContainer(
-              title: "Email",
-              subtitle: "manish30d@gmail.com",
-              icon: Icon(
-                Icons.email_outlined,
-                color: blueColor,
+            InkWell(
+              onTap: (){
+                launchUrl(
+                    Uri(scheme: "tel", path: "7897739391"),
+                    mode: LaunchMode.externalApplication
+                );
+              },
+              child: CustomContainer(
+                title: "Phone",
+                subtitle: "+91 7897739391",
+                icon: Icon(
+                  Icons.phone,
+                  color: blueColor,
+                ),
               ),
             ),
-            CustomContainer(
-              title: "Phone",
-              subtitle: "+91 7897739391",
-              icon: Icon(
-                Icons.phone,
-                color: blueColor,
-              ),
-            ),
+
             CustomContainer(
               title: "Birthday",
               subtitle: "30 Dec, 2000",
@@ -125,6 +191,12 @@ class CustomContainer extends StatelessWidget {
     this.icon,
     this.function,
   });
+
+  static void defaultFunction() {
+    launchUrl(
+        Uri.parse("https://google.com/"),
+        mode: LaunchMode.externalApplication);
+  }
 
   @override
   Widget build(BuildContext context) {
