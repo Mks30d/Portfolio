@@ -30,18 +30,10 @@ class _LandingPageState extends State<LandingPage> {
       body: Container(
         color: widget.bgColor,
         child: Row(children: [
-          //----------------left------------------
+
           LeftPortion(),
 
-          // SizedBox(
-          //   width: 10,
-          // ),
-
-          //----------------right---------------------
-          Expanded(
-            flex: 2,
-            child: RightPortion(),
-          ),
+          RightPortion(),
         ]),
       ),
     );

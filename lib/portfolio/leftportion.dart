@@ -28,7 +28,7 @@ class _LeftPortionState extends State<LeftPortion> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 80, right: 11, top: 50, bottom: 50),
+      padding: const EdgeInsets.only(left: 80, right: 11, top: 30, bottom: 30),
       child: Container(
         width: 250,
         decoration: BoxDecoration(
@@ -185,7 +185,7 @@ class CustomContainer extends StatelessWidget {
   final Icon? icon;
   final Function? function;
 
-  const CustomContainer({
+  CustomContainer({
     this.title = "Title",
     this.subtitle = "Subtitle",
     this.icon,
