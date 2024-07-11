@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 
-class Resume extends StatefulWidget {
-  const Resume({super.key});
+class Project extends StatefulWidget {
+  const Project({super.key});
 
   @override
-  State<Resume> createState() => _ResumeState();
+  State<Project> createState() => _ProjectState();
 }
 
-class _ResumeState extends State<Resume> {
+class _ProjectState extends State<Project> {
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 460,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.deepPurpleAccent,
+        color: Colors.purple,
         borderRadius: BorderRadius.only(
           // bottomLeft: Radius.circular(22),
           // bottomRight: Radius.circular(22),
         ),
       ),
-      child: Text("Resume"),
-    );  }
+      child: Text("Project"),
+    );
+  }
 }

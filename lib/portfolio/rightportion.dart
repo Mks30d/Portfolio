@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/portfolio/menu/about.dart';
+import 'package:portfolio/portfolio/menu/contact.dart';
+import 'package:portfolio/portfolio/menu/project.dart';
 import 'package:portfolio/portfolio/menu/resume.dart';
 
 Color textPrimaryColor = Color(0xffe7e7e7);
@@ -18,18 +20,27 @@ class RightPortion extends StatefulWidget {
 }
 
 class _RightPortionState extends State<RightPortion> {
-  TextStyle textStyle =
-      TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black);
+  TextStyle textStyle = TextStyle(
+      fontSize: 15, fontWeight: FontWeight.w500, color: textPrimaryColor
+  );
   var calledSection = About();
+  int selectedIndex =0;
+
+  Map<int, Widget> selectedSection = {
+    0 : About(),
+    1 : Resume(),
+    2 : Project(),
+    3 : Contact(),
+  };
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 80, left: 11, top: 50, bottom: 50),
+      padding: const EdgeInsets.only(right: 80, left: 11, top: 30, bottom: 30),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(22),
         child: Container(
-          width: 100,
+          width: 800,
           height: double.infinity,
           decoration: BoxDecoration(
               color: primaryColor,
@@ -41,8 +52,8 @@ class _RightPortionState extends State<RightPortion> {
                 right: 0,
                 top: 0,
                 child: Container(
-                  height: 60,
-                  width: 600,
+                  height: 50,
+                  width: 500,
                   decoration: BoxDecoration(
                     color: blueColor,
                     borderRadius: BorderRadius.only(
@@ -56,32 +67,52 @@ class _RightPortionState extends State<RightPortion> {
                       InkWell(
                         onTap: () {
                           setState(() {
-
+                            // calledSection = Resume(),
+                            selectedIndex=0;
+                            selectedSection[selectedIndex];
                           });
                         },
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              // calledSection = Resume(),
-                            });
-                          },
-                          child: Text(
-                            "ABOUT",
-                            style: textStyle,
-                          ),
+                        child: Text(
+                          "ABOUT",
+                          style: textStyle,
                         ),
                       ),
-                      Text(
-                        "RESUME",
-                        style: textStyle,
+
+                      InkWell(
+                        onTap: (){
+                          setState(() {
+                            selectedIndex=1;
+                            selectedSection[selectedIndex];
+                          });
+                        },
+                        child: Text(
+                          "RESUME",
+                          style: textStyle,
+                        ),
                       ),
-                      Text(
-                        "PROJECTS",
-                        style: textStyle,
+                      InkWell(
+                        onTap: (){
+                          setState(() {
+                            selectedIndex=2;
+                            selectedSection[selectedIndex];
+                          });
+                        },
+                        child: Text(
+                          "PROJECTS",
+                          style: textStyle,
+                        ),
                       ),
-                      Text(
-                        "CONTACT",
-                        style: textStyle,
+                      InkWell(
+                        onTap: (){
+                          setState(() {
+                            selectedIndex=3;
+                            selectedSection[selectedIndex];
+                          });
+                        },
+                        child: Text(
+                          "CONTACT",
+                          style: textStyle,
+                        ),
                       ),
                     ],
                   ),
@@ -96,16 +127,17 @@ class _RightPortionState extends State<RightPortion> {
                       Text(
                         "About me",
                         style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 22,
                           color: textPrimaryColor,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
+                      Text("data= $selectedIndex", style: textStyle,),
                       Container(
                         height: 3,
-                        width: 130,
+                        width: 100,
                         decoration: BoxDecoration(
-                            color: textPrimaryColor,
+                            color: blueColor,
                             borderRadius: BorderRadius.circular(15)),
                       )
                     ],
@@ -114,12 +146,22 @@ class _RightPortionState extends State<RightPortion> {
               // ==================================================
               Positioned(
                   bottom: 0, left: 0, right: 0,
-                  child: calledSection
+                  child: selectedSection[selectedIndex] ?? About(),
               )
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+
+class GridContent extends StatelessWidget {
+  const GridContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
