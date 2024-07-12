@@ -4,6 +4,15 @@ import 'package:portfolio/portfolio/leftportion.dart';
 import 'package:portfolio/portfolio/rightportion.dart';
 import 'package:portfolio/portfolio/sidebar.dart';
 
+Color textPrimaryColor = Color(0xffe7e7e7);
+Color textSecondaryColor = Color(0xff8e8e8f);
+Color primaryColor = Color(0xff1e1e1f);
+Color secondaryColor = Color(0xff373737);
+// Color blueColor = Colors.blue.shade700;
+Color blueColor = Color(0xff0254cf);
+Color bgColor = Color(0xff111111);
+Color borderColor = Color(0xff444444);
+
 class LandingPage extends StatefulWidget {
   // Color textColor = Color(0xfffafafa);
   // Color textColor1 = Color(0xfff8f8f8);
@@ -12,12 +21,12 @@ class LandingPage extends StatefulWidget {
   // Color blueColor = Colors.blueAccent;
   // Color bgColor = Color(0xff121212);
   // Color borderColor = Color(0xff444444);
-  Color textColor = Color(0xfffafafa);
-  Color primaryColor = Color(0xff1e1e1f);
-  Color secondaryColor = Color(0xff373737);
-  Color blueColor = Colors.blueAccent;
-  Color bgColor = Color(0xff111111);
-  Color borderColor = Color(0xff444444);
+  // Color textColor = Color(0xfffafafa);
+  // Color primaryColor = Color(0xff1e1e1f);
+  // Color secondaryColor = Color(0xff373737);
+  // Color blueColor = Colors.blueAccent;
+  // Color bgColor = Color(0xff111111);
+  // Color borderColor = Color(0xff444444);
 
   @override
   State<LandingPage> createState() => _LandingPageState();
@@ -28,7 +37,7 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: widget.bgColor,
+        color: bgColor,
         child: Row(children: [
 
           LeftPortion(),

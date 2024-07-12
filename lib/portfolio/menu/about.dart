@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/portfolio/leftportion.dart';
+import 'package:portfolio/portfolio/landingpage.dart';
 
 class About extends StatefulWidget {
   const About({super.key});
@@ -97,7 +97,16 @@ class Content extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           color: blueColor,
-          borderRadius: BorderRadius.circular(11)),
+          borderRadius: BorderRadius.circular(11),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x000000).withOpacity(1),
+            offset: Offset(12, 13),
+            blurRadius: 18,
+            spreadRadius: -5,
+          )
+        ]
+      ),
       child: ConstrainedBox(
         constraints: const BoxConstraints(
           minWidth: 330,

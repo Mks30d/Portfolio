@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:portfolio/portfolio/landingpage.dart';
 import 'package:portfolio/portfolio/menu/about.dart';
 import 'package:portfolio/portfolio/menu/contact.dart';
+import 'package:portfolio/portfolio/menu/internship.dart';
 import 'package:portfolio/portfolio/menu/project.dart';
 import 'package:portfolio/portfolio/menu/resume.dart';
 
-Color textPrimaryColor = Color(0xffe7e7e7);
-Color textSecondaryColor = Color(0xff8e8e8f);
-Color primaryColor = Color(0xff1e1e1f);
-Color secondaryColor = Color(0xff373737);
-// Color blueColor = Colors.blue.shade700;
-Color blueColor = Color(0xff0254cf);
-Color bgColor = Color(0xff111111);
-Color borderColor = Color(0xff444444);
+// Color textPrimaryColor = Color(0xffe7e7e7);
+// Color textSecondaryColor = Color(0xff8e8e8f);
+// Color primaryColor = Color(0xff1e1e1f);
+// Color secondaryColor = Color(0xff373737);
+// // Color blueColor = Colors.blue.shade700;
+// Color blueColor = Color(0xff0254cf);
+// Color bgColor = Color(0xff111111);
+// Color borderColor = Color(0xff444444);
 
 class RightPortion extends StatefulWidget {
   @override
@@ -24,14 +26,34 @@ class _RightPortionState extends State<RightPortion> {
       fontSize: 15, fontWeight: FontWeight.w500, color: textPrimaryColor
   );
   var calledSection = About();
-  int selectedIndex =0;
+  int selectedIndex =3;
+  String heading = "About me";
+  double lineWidth = 98;
 
   Map<int, Widget> selectedSection = {
     0 : About(),
-    1 : Resume(),
-    2 : Project(),
-    3 : Contact(),
+    1 : Internship(),
+    2 : Resume(),
+    3 : Project(),
+    4 : Contact(),
   };
+
+  // Widget menuItem(String menuTitle, String heading,underlineWidth) {
+  //   return InkWell(
+  //     onTap: () {
+  //       setState(() {
+  //         selectedIndex=4;
+  //         selectedSection[selectedIndex];
+  //         heading = "Internship";
+  //         underlineWidth = underlineWidth;
+  //       });
+  //     },
+  //     child: Text(
+  //       menuTitle,
+  //       style: textStyle,
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +92,8 @@ class _RightPortionState extends State<RightPortion> {
                             // calledSection = Resume(),
                             selectedIndex=0;
                             selectedSection[selectedIndex];
+                            heading = "About me";
+                            lineWidth = 98;
                           });
                         },
                         child: Text(
@@ -83,6 +107,23 @@ class _RightPortionState extends State<RightPortion> {
                           setState(() {
                             selectedIndex=1;
                             selectedSection[selectedIndex];
+                            heading = "Internships";
+                            lineWidth = 113;
+                          });
+                        },
+                        child: Text(
+                          "INTERNSHIP",
+                          style: textStyle,
+                        ),
+                      ),
+
+                      InkWell(
+                        onTap: (){
+                          setState(() {
+                            selectedIndex=2;
+                            selectedSection[selectedIndex];
+                            heading = "Resume";
+                            lineWidth = 83;
                           });
                         },
                         child: Text(
@@ -93,8 +134,10 @@ class _RightPortionState extends State<RightPortion> {
                       InkWell(
                         onTap: (){
                           setState(() {
-                            selectedIndex=2;
+                            selectedIndex=3;
                             selectedSection[selectedIndex];
+                            heading = "Projects";
+                            lineWidth = 83;
                           });
                         },
                         child: Text(
@@ -105,8 +148,10 @@ class _RightPortionState extends State<RightPortion> {
                       InkWell(
                         onTap: (){
                           setState(() {
-                            selectedIndex=3;
+                            selectedIndex=4;
                             selectedSection[selectedIndex];
+                            heading = "Contact";
+                            lineWidth = 80;
                           });
                         },
                         child: Text(
@@ -114,6 +159,9 @@ class _RightPortionState extends State<RightPortion> {
                           style: textStyle,
                         ),
                       ),
+
+                      // menuItem("INTERNSHIP", "Internship", 99 ),
+
                     ],
                   ),
                 ),
@@ -125,28 +173,28 @@ class _RightPortionState extends State<RightPortion> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "About me",
+                        heading,
                         style: TextStyle(
                           fontSize: 22,
                           color: textPrimaryColor,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      Text("data= $selectedIndex", style: textStyle,),
+                      // Text("data= $selectedIndex", style: textStyle,),
                       Container(
-                        height: 3,
-                        width: 100,
+                        height: 4,
+                        width: lineWidth,
                         decoration: BoxDecoration(
                             color: blueColor,
                             borderRadius: BorderRadius.circular(15)),
                       )
                     ],
                   )),
-        
+
               // ==================================================
               Positioned(
                   bottom: 0, left: 0, right: 0,
-                  child: selectedSection[selectedIndex] ?? About(),
+                  child: selectedSection[selectedIndex]! ,
               )
             ],
           ),
