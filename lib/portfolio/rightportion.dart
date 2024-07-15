@@ -16,19 +16,29 @@ import 'package:portfolio/portfolio/menu/resume.dart';
 // Color bgColor = Color(0xff111111);
 // Color borderColor = Color(0xff444444);
 
+// TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle menuMainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 30, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle menuItemsHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 13, fontWeight: FontWeight.w500, fontFamily: "Poppins");
+TextStyle menuItemsHeadingStyle1 = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+// TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+// TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+// TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w300, fontFamily: "Poppins");
+
+
 class RightPortion extends StatefulWidget {
   @override
   State<RightPortion> createState() => _RightPortionState();
 }
 
 class _RightPortionState extends State<RightPortion> {
-  TextStyle textStyle = TextStyle(
-      fontSize: 15, fontWeight: FontWeight.w500, color: textPrimaryColor
-  );
+  // TextStyle textStyle = TextStyle(
+  //     fontSize: 15, fontWeight: FontWeight.w500, color: textPrimaryColor
+  // );
   var calledSection = About();
-  int selectedIndex =3;
+  int selectedIndex =1;
   String heading = "About me";
-  double lineWidth = 98;
+  double lineWidth = 150;
+  bool isHover = false;
 
   Map<int, Widget> selectedSection = {
     0 : About(),
@@ -93,12 +103,18 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=0;
                             selectedSection[selectedIndex];
                             heading = "About me";
-                            lineWidth = 98;
+                            lineWidth = 150;
+                          });
+                        },
+                        onHover: (value) {
+                          print("value= $value");
+                          setState(() {
+                            isHover = value;
                           });
                         },
                         child: Text(
                           "ABOUT",
-                          style: textStyle,
+                          style: isHover ? menuItemsHeadingStyle1 : menuItemsHeadingStyle,
                         ),
                       ),
 
@@ -108,12 +124,12 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=1;
                             selectedSection[selectedIndex];
                             heading = "Internships";
-                            lineWidth = 113;
+                            lineWidth = 170;
                           });
                         },
                         child: Text(
                           "INTERNSHIP",
-                          style: textStyle,
+                          style: menuItemsHeadingStyle,
                         ),
                       ),
 
@@ -123,12 +139,12 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=2;
                             selectedSection[selectedIndex];
                             heading = "Resume";
-                            lineWidth = 83;
+                            lineWidth = 122;
                           });
                         },
                         child: Text(
                           "RESUME",
-                          style: textStyle,
+                          style: menuItemsHeadingStyle,
                         ),
                       ),
                       InkWell(
@@ -137,12 +153,12 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=3;
                             selectedSection[selectedIndex];
                             heading = "Projects";
-                            lineWidth = 83;
+                            lineWidth = 120;
                           });
                         },
                         child: Text(
                           "PROJECTS",
-                          style: textStyle,
+                          style: menuItemsHeadingStyle,
                         ),
                       ),
                       InkWell(
@@ -151,12 +167,12 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=4;
                             selectedSection[selectedIndex];
                             heading = "Contact";
-                            lineWidth = 80;
+                            lineWidth = 125;
                           });
                         },
                         child: Text(
                           "CONTACT",
-                          style: textStyle,
+                          style: menuItemsHeadingStyle,
                         ),
                       ),
 
@@ -168,17 +184,18 @@ class _RightPortionState extends State<RightPortion> {
               ),
               Positioned(
                   left: 20,
-                  top: 15,
+                  top: 7,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         heading,
-                        style: TextStyle(
-                          fontSize: 22,
-                          color: textPrimaryColor,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        style: menuMainHeadingStyle,
+                        // style: TextStyle(
+                        //   fontSize: 22,
+                        //   color: textPrimaryColor,
+                        //   fontWeight: FontWeight.w600,
+                        // ),
                       ),
                       // Text("data= $selectedIndex", style: textStyle,),
                       Container(
@@ -189,7 +206,8 @@ class _RightPortionState extends State<RightPortion> {
                             borderRadius: BorderRadius.circular(15)),
                       )
                     ],
-                  )),
+                  )
+              ),
 
               // ==================================================
               Positioned(
@@ -204,12 +222,3 @@ class _RightPortionState extends State<RightPortion> {
   }
 }
 
-
-class GridContent extends StatelessWidget {
-  const GridContent({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}

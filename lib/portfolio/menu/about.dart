@@ -2,6 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/portfolio/landingpage.dart';
 
+// TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 24, fontWeight: FontWeight.w800, fontFamily: "Poppins");
+TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 18, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 13, fontFamily: "Poppins");
+
+
 class About extends StatefulWidget {
   const About({super.key});
 
@@ -10,13 +16,13 @@ class About extends StatefulWidget {
 }
 
 class _AboutState extends State<About> {
-  TextStyle textStyle = TextStyle(
-      fontSize: 15, fontWeight: FontWeight.w300, color: textPrimaryColor);
+  // TextStyle textStyle = TextStyle(
+  //     fontSize: 15, fontWeight: FontWeight.w300, color: textPrimaryColor);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 460,
+      height: 435,
       width: double.infinity,
       decoration: const BoxDecoration(
         // color: Colors.blue,
@@ -33,7 +39,7 @@ class _AboutState extends State<About> {
             children: [
               Text(
                 "I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.",
-                style: textStyle,
+                style: subtitleStyle,
               ),
               const SizedBox(
                 height: 30,
@@ -42,11 +48,12 @@ class _AboutState extends State<About> {
 
               Text(
                 "What I'm Doing",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  color: textPrimaryColor,
-                ),
+                // style: TextStyle(
+                //   fontSize: 20,
+                //   fontWeight: FontWeight.w700,
+                //   color: textPrimaryColor,
+                // ),
+                style: mainHeadingStyle,
               ),
               const SizedBox(
                 height: 15,
@@ -55,16 +62,16 @@ class _AboutState extends State<About> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Content(title: "Flutter",),
-                  Content(title: "Java",),
+                  DoingDetails(title: "Flutter",image: Image.asset("assets/images/logo/Flutter-Dark.png")),
+                  DoingDetails(title: "Java",image: Image.asset("assets/images/logo/Java-Dark.png")),
                 ],
               ),
               SizedBox(height: 25,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Content(icon: Icon(Icons.phone_android_sharp, color: textPrimaryColor,),title: "Mobile Apps", subtitle: "Professional development of applications for iOS and Android.",),
-                  Content(title: "DSA",),
+                  DoingDetails(image: Image.asset("assets/images/logo/AndroidStudio-Dark.png") ,title: "Mobile Apps", subtitle: "Professional development of applications for iOS and Android.",),
+                  DoingDetails(title: "DSA",image: Image.asset("assets/images/logo/Java-Dark.png")),
                 ],
               ),
             ],
@@ -75,17 +82,19 @@ class _AboutState extends State<About> {
   }
 }
 
-class Content extends StatelessWidget {
-  // const Content({super.key});
+class DoingDetails extends StatelessWidget {
+  // const DoingDetails({super.key});
 
   final String title;
   final String subtitle;
   final Icon? icon;
+  final Image? image;
 
-  Content({
+  DoingDetails({
     this.title = "Web Design",
     this.subtitle = "The most modern and high-quality design made at a professional level.",
     this.icon,
+    this.image,
 });
 
   @override
@@ -118,7 +127,7 @@ class Content extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 18, right: 18),
+              padding: EdgeInsets.only(left: 18, right: 15),
               child: Container(
                 width: 45,
                 height: 45,
@@ -127,29 +136,34 @@ class Content extends StatelessWidget {
                   borderRadius: BorderRadius.circular(11)
                 ),
                 child: Center(
-                  child: FlutterLogo(size: 30,) ,
+                  // child: icon != null? icon: Icon(Icons.account_box),
+                  child: image != null ? image:Image.asset("assets/images/logo/Flutter-Dark.png"),
                 ),
               ),
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(top: 20, bottom: 20, right: 15),
+                padding: const EdgeInsets.only(top: 25, bottom: 20, right: 15),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       title,
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                          color: textPrimaryColor),
+                      // style: TextStyle(
+                      //     fontSize: 18,
+                      //     fontWeight: FontWeight.w700,
+                      //     color: textPrimaryColor
+                      // ),
+                      style: titleStyle,
                     ),
-                    Container(
-                        child: Text(
-                      subtitle,
-                      style: textStyle,
-                    )),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 3),
+                      child: Text(
+                        subtitle,
+                        style: subtitleStyle,
+                      ),
+                    ),
                   ],
                 ),
               ),

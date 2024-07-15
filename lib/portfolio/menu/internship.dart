@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/portfolio/landingpage.dart';
 
+// TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 22, fontWeight: FontWeight.w800, fontFamily: "Poppins");
+TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 13, fontFamily: "Poppins");
+
+
 class Internship extends StatelessWidget {
   const Internship({super.key});
 
@@ -44,16 +50,13 @@ class Internship extends StatelessWidget {
       children: [
         Text(
           course,
-          style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              color: textPrimaryColor),
+          style: titleStyle,
         ),
         Padding(
           padding: const EdgeInsets.only(top: 4, bottom: 3),
           child: Text(year, style: TextStyle(fontSize: 13, color: blueColor)),
         ),
-        Text(college, style: TextStyle(fontSize: 14, color: textPrimaryColor)),
+        Text(college, style: subtitleStyle),
         SizedBox(
           height: 25,
         )
@@ -110,11 +113,8 @@ class Internship extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 11, bottom: 22),
                           child: Text(
-                            "INTERNSHIPS",
-                            style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w700,
-                                color: textPrimaryColor),
+                            "Internships",
+                            style: mainHeadingStyle,
                           ),
                         ),
                 
@@ -135,7 +135,7 @@ class Internship extends StatelessWidget {
                         education(
                             "Full Stack Developer",
                             "Innomatics Research Labs | Feb 2023 - Apr 2023",
-                            "Gained expertise in HTML, CSS, JavaScript, Bootstrap, React.j"),
+                            "Gained expertise in HTML, CSS, JavaScript, Bootstrap, React.js"),
                         education(
                             "Desktop Application Developer",
                             "Precursor Info Solutions Private Limited | Jul 2022 - Aug 2022",
@@ -155,29 +155,35 @@ class Skills extends StatelessWidget {
   // const Skills({super.key});
 
   List <String> image = ["Flutter-Dark.png", "Java-Dark.png", "Dart-Dark.png", "C.png", "HTML.png", "CSS.png", "JavaScript.png", "Git.png", "Github-Dark.png", "Idea-Dark.png", "VSCode-Dark.png", "AndroidStudio-Dark.png", ];
+  List <String> title = ["Flutter", "Java", "Dart", "C", "HTML", "CSS", "JavaScript", "Git", "GitHub", "IntelliJ", "VSCode", "AndroidStudio", ];
 
-  Widget skills(String image) {
+  Widget skills(String image, String title) {
     return Padding(
       padding: const EdgeInsets.only(left: 5, right: 7, top: 5, bottom: 7),
       child: Container(
-        width: 55,
-        height: 55,
+        // width: 55,
+        // height: 55,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(11)),
         child: Center(
-          child: Container(
-            decoration: BoxDecoration(boxShadow: [
-              BoxShadow(
-                color: Color(0x000000).withOpacity(1),
-                offset: Offset(12, 13),
-                blurRadius: 18,
-                spreadRadius: -5,
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Color(0x000000).withOpacity(1),
+                    offset: Offset(12, 13),
+                    blurRadius: 18,
+                    spreadRadius: -5,
+                  )
+                ]),
+                child: Image.asset("assets/images/logo/${image}", height: 45,),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 3,bottom: 4),
+                child: Text("${title}", style: TextStyle(color: textPrimaryColor),),
               )
-            ]),
-            child: Image(
-              image: AssetImage("assets/images/logo/${image}"),
-              height: 55,
-            ),
+            ],
           ),
         ),
       ),
@@ -215,11 +221,8 @@ class Skills extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 11, bottom: 22),
                 child: Text(
-                  "SKILLS",
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w700,
-                      color: textPrimaryColor),
+                  "Skills",
+                  style: mainHeadingStyle,
                 ),
               ),
             ],
@@ -251,23 +254,23 @@ class Skills extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              skills(image[0]),
-              skills(image[1]),
-              skills(image[2]),
-              skills(image[3]),
-              skills(image[4]),
+              skills(image[0], title[0]),
+              skills(image[1], title[1]),
+              skills(image[2], title[2]),
+              skills(image[3], title[3]),
+              skills(image[4], title[4]),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              skills(image[5]),
-              skills(image[6]),
-              skills(image[7]),
-              skills(image[8]),
-              skills(image[9]),
-              skills(image[10]),
-              skills(image[11]),
+              skills(image[5], title[5]),
+              skills(image[6], title[6]),
+              skills(image[7], title[7]),
+              skills(image[8], title[8]),
+              skills(image[9], title[9]),
+              skills(image[10], title[10]),
+              skills(image[11], title[11]),
             ],
           ),
 

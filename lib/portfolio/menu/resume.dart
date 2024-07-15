@@ -2,6 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/portfolio/landingpage.dart';
 
+// TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 22, fontWeight: FontWeight.w800, fontFamily: "Poppins");
+TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 13, fontFamily: "Poppins");
+
 class Resume extends StatelessWidget {
   const Resume({super.key});
 
@@ -45,12 +50,12 @@ class Resume extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(course, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: textPrimaryColor),),
+        Text(course, style: titleStyle,),
         Padding(
           padding: const EdgeInsets.only(top: 4, bottom: 3),
           child: Text(year, style: TextStyle(fontSize: 13, color: blueColor)),
         ),
-        Text(college, style: TextStyle(fontSize: 14, color: textPrimaryColor)),
+        Text(college, style: subtitleStyle),
         SizedBox(
           height: 25,
         )
@@ -88,11 +93,11 @@ class Resume extends StatelessWidget {
                       ),
                     ),
                   ),
-                  line(30),
+                  line(24),
                   circle(),
-                  line(84),
+                  line(79),
                   circle(),
-                  line(85),
+                  line(78),
                   circle(),
                 ],
               ),
@@ -106,7 +111,7 @@ class Resume extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 11, bottom: 22),
                     child: Text(
                       "Education",
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: textPrimaryColor),
+                      style: mainHeadingStyle,
                     ),
                   ),
 
