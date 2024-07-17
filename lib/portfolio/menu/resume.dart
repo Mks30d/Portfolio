@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/portfolio/landingpage.dart';
 
 // TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
-TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 22, fontWeight: FontWeight.w800, fontFamily: "Poppins");
-TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: "Poppins");
-TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 13, fontFamily: "Poppins");
+TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 23, fontWeight: FontWeight.w800, fontFamily: "Poppins");
+TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 16, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+TextStyle subtitleStyle = TextStyle(color: textSecondaryColor, fontSize: 13, fontFamily: "Poppins");
 
 class Resume extends StatelessWidget {
   const Resume({super.key});
@@ -93,11 +93,11 @@ class Resume extends StatelessWidget {
                       ),
                     ),
                   ),
-                  line(24),
+                  line(26),
                   circle(),
-                  line(79),
+                  line(82),
                   circle(),
-                  line(78),
+                  line(80),
                   circle(),
                 ],
               ),
@@ -110,7 +110,7 @@ class Resume extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 11, bottom: 22),
                     child: Text(
-                      "Education",
+                      "Education".toUpperCase(),
                       style: mainHeadingStyle,
                     ),
                   ),

@@ -5,7 +5,8 @@ import 'package:portfolio/portfolio/rightportion.dart';
 import 'package:portfolio/portfolio/sidebar.dart';
 
 Color textPrimaryColor = Color(0xffe7e7e7);
-Color textSecondaryColor = Color(0xff8e8e8f);
+// Color textSecondaryColor = Color(0xff8e8e8f);
+Color textSecondaryColor = Color(0xff979898);
 Color primaryColor = Color(0xff1e1e1f);
 Color secondaryColor = Color(0xff373737);
 // Color blueColor = Colors.blue.shade700;

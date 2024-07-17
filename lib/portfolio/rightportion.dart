@@ -35,11 +35,10 @@ class _RightPortionState extends State<RightPortion> {
   //     fontSize: 15, fontWeight: FontWeight.w500, color: textPrimaryColor
   // );
   var calledSection = About();
-  int selectedIndex =1;
+  int selectedIndex =3;
   String heading = "About me";
   double lineWidth = 150;
   bool isHover = false;
-
   Map<int, Widget> selectedSection = {
     0 : About(),
     1 : Internship(),

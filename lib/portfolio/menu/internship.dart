@@ -2,47 +2,80 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/portfolio/landingpage.dart';
 
 // TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
-TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 22, fontWeight: FontWeight.w800, fontFamily: "Poppins");
-TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: "Poppins");
-TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 13, fontFamily: "Poppins");
+TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 23, fontWeight: FontWeight.w800, fontFamily: "Poppins");
+TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 16, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+TextStyle subtitleStyle = TextStyle(color: textSecondaryColor, fontSize: 13, fontFamily: "Poppins");
 
+Widget line(double height) {
+  return Container(
+    height: height,
+    width: 1,
+    color: textSecondaryColor,
+  );
+}
+
+Widget circle() {
+  return Container(
+    width: 12,
+    height: 12,
+    decoration: BoxDecoration(
+        color: secondaryColor,
+        borderRadius: BorderRadius.circular(50),
+        boxShadow: [
+          BoxShadow(
+            color: primaryColor.withOpacity(1),
+            offset: Offset(0, -2),
+            blurRadius: 8,
+            spreadRadius: 8,
+          ),
+        ]),
+    child: Center(
+      child: Container(
+        width: 7,
+        height: 7,
+        decoration: BoxDecoration(
+            color: blueColor, borderRadius: BorderRadius.circular(50)),
+      ),
+    ),
+  );
+}
 
 class Internship extends StatelessWidget {
   const Internship({super.key});
 
-  Widget line(double height) {
-    return Container(
-      height: height,
-      width: 1,
-      color: textSecondaryColor,
-    );
-  }
-
-  Widget circle() {
-    return Container(
-      width: 12,
-      height: 12,
-      decoration: BoxDecoration(
-          color: secondaryColor,
-          borderRadius: BorderRadius.circular(50),
-          boxShadow: [
-            BoxShadow(
-              color: primaryColor.withOpacity(1),
-              offset: Offset(0, -2),
-              blurRadius: 8,
-              spreadRadius: 8,
-            ),
-          ]),
-      child: Center(
-        child: Container(
-          width: 7,
-          height: 7,
-          decoration: BoxDecoration(
-              color: blueColor, borderRadius: BorderRadius.circular(50)),
-        ),
-      ),
-    );
-  }
+  // Widget line(double height) {
+  //   return Container(
+  //     height: height,
+  //     width: 1,
+  //     color: textSecondaryColor,
+  //   );
+  // }
+  //
+  // Widget circle() {
+  //   return Container(
+  //     width: 12,
+  //     height: 12,
+  //     decoration: BoxDecoration(
+  //         color: secondaryColor,
+  //         borderRadius: BorderRadius.circular(50),
+  //         boxShadow: [
+  //           BoxShadow(
+  //             color: primaryColor.withOpacity(1),
+  //             offset: Offset(0, -2),
+  //             blurRadius: 8,
+  //             spreadRadius: 8,
+  //           ),
+  //         ]),
+  //     child: Center(
+  //       child: Container(
+  //         width: 7,
+  //         height: 7,
+  //         decoration: BoxDecoration(
+  //             color: blueColor, borderRadius: BorderRadius.circular(50)),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget education(String course, String year, String college) {
     return Column(
@@ -201,18 +234,23 @@ class Skills extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 6),
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                      color: secondaryColor,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Center(
-                    child: Icon(
-                      Icons.menu_book_outlined,
-                      color: blueColor,
+                child: Column(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                          color: secondaryColor,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Center(
+                        child: Icon(
+                          Icons.menu_book_outlined,
+                          color: blueColor,
+                        ),
+                      ),
                     ),
-                  ),
+
+                  ],
                 ),
               ),
               SizedBox(
