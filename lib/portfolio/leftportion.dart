@@ -1,15 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/portfolio/landingpage.dart';
+import 'package:portfolio/portfolio/leftportion.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-Color textPrimaryColor = Color(0xffe7e7e7);
-Color textSecondaryColor = Color(0xff8e8e8f);
-Color primaryColor = Color(0xff1e1e1f);
-Color secondaryColor = Color(0xff373737);
-// Color blueColor = Colors.blue.shade700;
-Color blueColor = Color(0xff0254cf);
-Color bgColor = Color(0xff111111);
-Color borderColor = Color(0xff444444);
+// Color textPrimaryColor = Color(0xffe7e7e7);
+// Color textSecondaryColor = Color(0xff8e8e8f);
+// Color primaryColor = Color(0xff1e1e1f);
+// Color secondaryColor = Color(0xff373737);
+// // Color blueColor = Colors.blue.shade700;
+// Color blueColor = Color(0xff0254cf);
+// Color bgColor = Color(0xff111111);
+// Color borderColor = Color(0xff444444);
+
+// TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle menuMainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle menuItemsHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w300, fontFamily: "Poppins");
+
 
 class LeftPortion extends StatefulWidget {
   // Color textColor = Color(0xfffafafa);
@@ -44,7 +54,15 @@ class _LeftPortionState extends State<LeftPortion> {
               width: 70,
               decoration: BoxDecoration(
                 color: secondaryColor,
-                borderRadius: BorderRadius.circular(22)
+                borderRadius: BorderRadius.circular(22),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0x000000).withOpacity(1),
+                    offset: Offset(0, 0),
+                    blurRadius: 14,
+                    spreadRadius: 2,
+                  )
+                ]
               ),
               // child: CircleAvatar(
               //   // child: Image.asset("assets/images/mks.jpeg"),
@@ -111,7 +129,52 @@ class _LeftPortionState extends State<LeftPortion> {
                       ),
                     ),
                   ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                        onTap: () {
+                          launchUrl(
+                              Uri.parse("https://www.linkedin.com/in/mks30d"),
+                              mode: LaunchMode.externalApplication);
+                        },
+                        child: Image(
+                          image: AssetImage("assets/images/logo/linkedin4.png"),
+                          height: 25,
+                        )),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        launchUrl(Uri.parse("https://github.com/Mks30d"),
+                            mode: LaunchMode.externalApplication);
+                      },
+                      child: Image(
+                        image: AssetImage("assets/images/logo/github1.png"),
+                        height: 25,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        launchUrl(
+                          Uri.parse("https://leetcode.com/u/Mks30d/"),
+                          mode: LaunchMode.externalApplication,
+                        );
+                      },
+                      child: Image(
+                        image: AssetImage("assets/images/logo/leetcode.png"),
+                        height: 25,
+                      ),
+                    ),
+                  ],
                 )
+
               ],
             ),
             Divider(
@@ -211,7 +274,8 @@ class CustomContainer extends StatelessWidget {
               height: 35,
               decoration: BoxDecoration(
                   color: secondaryColor,
-                  borderRadius: BorderRadius.circular(11)),
+                  borderRadius: BorderRadius.circular(11)
+              ),
               child: icon,
             ),
           ),

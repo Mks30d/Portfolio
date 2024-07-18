@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:portfolio/portfolio/landingpage.dart';
 import 'package:portfolio/portfolio/menu/about.dart';
 import 'package:portfolio/portfolio/menu/contact.dart';
+import 'package:portfolio/portfolio/menu/internship.dart';
 import 'package:portfolio/portfolio/menu/project.dart';
 import 'package:portfolio/portfolio/menu/resume.dart';
 
-Color textPrimaryColor = Color(0xffe7e7e7);
-Color textSecondaryColor = Color(0xff8e8e8f);
-Color primaryColor = Color(0xff1e1e1f);
-Color secondaryColor = Color(0xff373737);
-// Color blueColor = Colors.blue.shade700;
-Color blueColor = Color(0xff0254cf);
-Color bgColor = Color(0xff111111);
-Color borderColor = Color(0xff444444);
+// Color textPrimaryColor = Color(0xffe7e7e7);
+// Color textSecondaryColor = Color(0xff8e8e8f);
+// Color primaryColor = Color(0xff1e1e1f);
+// Color secondaryColor = Color(0xff373737);
+// // Color blueColor = Colors.blue.shade700;
+// Color blueColor = Color(0xff0254cf);
+// Color bgColor = Color(0xff111111);
+// Color borderColor = Color(0xff444444);
+
+// TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle menuMainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 30, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle menuItemsHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 13, fontWeight: FontWeight.w500, fontFamily: "Poppins");
+TextStyle menuItemsHeadingStyle1 = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+// TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+// TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: "Poppins");
+// TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w300, fontFamily: "Poppins");
+
 
 class RightPortion extends StatefulWidget {
   @override
@@ -20,18 +31,38 @@ class RightPortion extends StatefulWidget {
 }
 
 class _RightPortionState extends State<RightPortion> {
-  TextStyle textStyle = TextStyle(
-      fontSize: 15, fontWeight: FontWeight.w500, color: textPrimaryColor
-  );
+  // TextStyle textStyle = TextStyle(
+  //     fontSize: 15, fontWeight: FontWeight.w500, color: textPrimaryColor
+  // );
   var calledSection = About();
-  int selectedIndex =0;
-
+  int selectedIndex =3;
+  String heading = "About me";
+  double lineWidth = 150;
+  bool isHover = false;
   Map<int, Widget> selectedSection = {
     0 : About(),
-    1 : Resume(),
-    2 : Project(),
-    3 : Contact(),
+    1 : Internship(),
+    2 : Resume(),
+    3 : Project(),
+    4 : Contact(),
   };
+
+  // Widget menuItem(String menuTitle, String heading,underlineWidth) {
+  //   return InkWell(
+  //     onTap: () {
+  //       setState(() {
+  //         selectedIndex=4;
+  //         selectedSection[selectedIndex];
+  //         heading = "Internship";
+  //         underlineWidth = underlineWidth;
+  //       });
+  //     },
+  //     child: Text(
+  //       menuTitle,
+  //       style: textStyle,
+  //     ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -70,11 +101,19 @@ class _RightPortionState extends State<RightPortion> {
                             // calledSection = Resume(),
                             selectedIndex=0;
                             selectedSection[selectedIndex];
+                            heading = "About me";
+                            lineWidth = 150;
+                          });
+                        },
+                        onHover: (value) {
+                          print("value= $value");
+                          setState(() {
+                            isHover = value;
                           });
                         },
                         child: Text(
                           "ABOUT",
-                          style: textStyle,
+                          style: isHover ? menuItemsHeadingStyle1 : menuItemsHeadingStyle,
                         ),
                       ),
 
@@ -83,23 +122,28 @@ class _RightPortionState extends State<RightPortion> {
                           setState(() {
                             selectedIndex=1;
                             selectedSection[selectedIndex];
+                            heading = "Internships";
+                            lineWidth = 170;
                           });
                         },
                         child: Text(
-                          "RESUME",
-                          style: textStyle,
+                          "INTERNSHIP",
+                          style: menuItemsHeadingStyle,
                         ),
                       ),
+
                       InkWell(
                         onTap: (){
                           setState(() {
                             selectedIndex=2;
                             selectedSection[selectedIndex];
+                            heading = "Resume";
+                            lineWidth = 122;
                           });
                         },
                         child: Text(
-                          "PROJECTS",
-                          style: textStyle,
+                          "RESUME",
+                          style: menuItemsHeadingStyle,
                         ),
                       ),
                       InkWell(
@@ -107,46 +151,67 @@ class _RightPortionState extends State<RightPortion> {
                           setState(() {
                             selectedIndex=3;
                             selectedSection[selectedIndex];
+                            heading = "Projects";
+                            lineWidth = 120;
+                          });
+                        },
+                        child: Text(
+                          "PROJECTS",
+                          style: menuItemsHeadingStyle,
+                        ),
+                      ),
+                      InkWell(
+                        onTap: (){
+                          setState(() {
+                            selectedIndex=4;
+                            selectedSection[selectedIndex];
+                            heading = "Contact";
+                            lineWidth = 125;
                           });
                         },
                         child: Text(
                           "CONTACT",
-                          style: textStyle,
+                          style: menuItemsHeadingStyle,
                         ),
                       ),
+
+                      // menuItem("INTERNSHIP", "Internship", 99 ),
+
                     ],
                   ),
                 ),
               ),
               Positioned(
                   left: 20,
-                  top: 15,
+                  top: 7,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "About me",
-                        style: TextStyle(
-                          fontSize: 22,
-                          color: textPrimaryColor,
-                          fontWeight: FontWeight.w600,
-                        ),
+                        heading,
+                        style: menuMainHeadingStyle,
+                        // style: TextStyle(
+                        //   fontSize: 22,
+                        //   color: textPrimaryColor,
+                        //   fontWeight: FontWeight.w600,
+                        // ),
                       ),
-                      Text("data= $selectedIndex", style: textStyle,),
+                      // Text("data= $selectedIndex", style: textStyle,),
                       Container(
-                        height: 3,
-                        width: 100,
+                        height: 4,
+                        width: lineWidth,
                         decoration: BoxDecoration(
                             color: blueColor,
                             borderRadius: BorderRadius.circular(15)),
                       )
                     ],
-                  )),
-        
+                  )
+              ),
+
               // ==================================================
               Positioned(
                   bottom: 0, left: 0, right: 0,
-                  child: selectedSection[selectedIndex] ?? About(),
+                  child: selectedSection[selectedIndex]! ,
               )
             ],
           ),
@@ -156,12 +221,3 @@ class _RightPortionState extends State<RightPortion> {
   }
 }
 
-
-class GridContent extends StatelessWidget {
-  const GridContent({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
