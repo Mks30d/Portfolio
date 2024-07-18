@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/portfolio/landingpage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 TextStyle mainHeadingStyle = TextStyle(
     color: textPrimaryColor,
@@ -118,7 +119,7 @@ class _ProjectState extends State<Project> {
     ]);
   }
 
-  Widget imageCard(String image, bool isHovering) {
+  Widget imageCard(String image, bool isHovering, String link) {
     return Stack(
       children: [
         Container(
@@ -157,15 +158,23 @@ class _ProjectState extends State<Project> {
           Positioned(
             top: 35,
             left: 90,
-            child: Container(
-                height: 45,
-                width: 50,
-                decoration: BoxDecoration(
-                    color: primaryColor, borderRadius: BorderRadius.circular(11)),
-                child: Icon(
-                  Icons.remove_red_eye,
-                  color: blueColor,
-                )),
+            child: InkWell(
+              onTap: () {
+                launchUrl(
+                    Uri.parse(link),
+                    mode: LaunchMode.externalApplication
+                );
+              },
+              child: Container(
+                  height: 45,
+                  width: 50,
+                  decoration: BoxDecoration(
+                      color: primaryColor, borderRadius: BorderRadius.circular(11)),
+                  child: Icon(
+                    Icons.remove_red_eye,
+                    color: blueColor,
+                  )),
+            ),
           ),
         ],
       ]
@@ -173,7 +182,7 @@ class _ProjectState extends State<Project> {
   }
 
 
-  Widget projectCard(String image, String title, String subtitle, int index) {
+  Widget projectCard(String image, String title, String subtitle, int index, String link) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -188,7 +197,7 @@ class _ProjectState extends State<Project> {
               });
             },
             // child: (hoveringIndex == index) ? imageCardOnHovering(image) : imageCard(image),
-          child: imageCard(image, (hoveringIndex == index) ),
+          child: imageCard(image, (hoveringIndex == index) , link),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 6, top: 4),
@@ -254,9 +263,9 @@ class _ProjectState extends State<Project> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                projectCard(images[0], "Student App", "Student App Applications", 0),
-                projectCard(images[1], "Doctor Appointment Tracker", "Desktop Applications", 1),
-                projectCard(images[2], "Student App", "Student App Applications", 2),
+                projectCard(images[0], "Student App", "Student App Applications", 0 ,"https://google.com/"),
+                projectCard(images[1], "Appointment Tracker", "Desktop Applications", 1, "https://bing.com/"),
+                projectCard(images[2], "Student App", "Student App Applications", 2, ""),
               ],
             ),
             SizedBox(
@@ -265,9 +274,9 @@ class _ProjectState extends State<Project> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                projectCard(images[3], "Student App", "Student App Applications", 3),
-                projectCard(images[4], "Student App", "Student App Applications", 4),
-                projectCard(images[5], "Student App", "Student App Applications", 5),
+                projectCard(images[3], "Student App", "Student App Applications", 3, ""),
+                projectCard(images[4], "Student App", "Student App Applications", 4, "https://bing.com/"),
+                projectCard(images[5], "Student App", "Student App Applications", 5, "https://github.com/"),
               ],
             ),
 
