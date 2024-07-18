@@ -10,7 +10,7 @@ TextStyle mainHeadingStyle = TextStyle(
     fontFamily: "Poppins");
 TextStyle titleStyle = TextStyle(
     color: textPrimaryColor,
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: FontWeight.w600,
     fontFamily: "Poppins");
 TextStyle subtitleStyle = TextStyle(
@@ -42,7 +42,7 @@ class _ProjectState extends State<Project> {
   bool isHovering = false;
   int hoveringIndex = -1;
 
-  Widget imageCard(String image) {
+  Widget imageCardInitial(String image) {
     return Container(
       height: 122,
       width: 215,
@@ -118,6 +118,61 @@ class _ProjectState extends State<Project> {
     ]);
   }
 
+  Widget imageCard(String image, bool isHovering) {
+    return Stack(
+      children: [
+        Container(
+          height: 122,
+          width: 215,
+          decoration: BoxDecoration(
+            // color: blueColor,
+            borderRadius: BorderRadius.circular(11),
+            border: Border.all(color: borderColor, width: 1),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(11),
+            child: Transform.scale(
+              scale: isHovering? 1.1 : 1.0,
+              child: Image(
+                image: AssetImage("assets/images/projects/$image"),
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+        ),
+
+
+//========== OnHovering ===========
+//In Dart, the three dots (...) are known as the spread operator. It allows you to spread the elements of a collection (such as a list) into another collection. When used inside a collection literal, it inserts all the elements of the given collection into the new collection.
+        if(isHovering)...[
+          Container(
+            height: 122,
+            width: 215,
+            decoration: BoxDecoration(
+              color: Color(0x67000000),
+              borderRadius: BorderRadius.circular(11),
+              border: Border.all(color: borderColor, width: 1),
+            ),
+          ),
+          Positioned(
+            top: 35,
+            left: 90,
+            child: Container(
+                height: 45,
+                width: 50,
+                decoration: BoxDecoration(
+                    color: primaryColor, borderRadius: BorderRadius.circular(11)),
+                child: Icon(
+                  Icons.remove_red_eye,
+                  color: blueColor,
+                )),
+          ),
+        ],
+      ]
+    );
+  }
+
+
   Widget projectCard(String image, String title, String subtitle, int index) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -128,12 +183,13 @@ class _ProjectState extends State<Project> {
             onHover: (value) {
               setState(() {
                 isHovering = value;
-                // hoveringIndex = index;
                 // hoveringIndex = value ? index : -1;
                 value ? hoveringIndex = index : hoveringIndex = -1;
               });
             },
-            child: (hoveringIndex == index) ? imageCardOnHovering(image) : imageCard(image)),
+            // child: (hoveringIndex == index) ? imageCardOnHovering(image) : imageCard(image),
+          child: imageCard(image, (hoveringIndex == index) ),
+        ),
         Padding(
           padding: const EdgeInsets.only(left: 6, top: 4),
           child: Container(
@@ -199,7 +255,7 @@ class _ProjectState extends State<Project> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 projectCard(images[0], "Student App", "Student App Applications", 0),
-                projectCard(images[1], "Doctor Appointment Tracking System", "Desktop Applications", 1),
+                projectCard(images[1], "Doctor Appointment Tracker", "Desktop Applications", 1),
                 projectCard(images[2], "Student App", "Student App Applications", 2),
               ],
             ),
