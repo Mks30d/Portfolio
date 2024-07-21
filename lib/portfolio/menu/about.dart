@@ -105,14 +105,19 @@ class DoingDetails extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-          color: blueColor,
+          // color: primaryColor,
+          gradient: LinearGradient(colors: [
+              Color(0xff222223),
+            primaryColor,
+          ]),
           borderRadius: BorderRadius.circular(11),
+        // border: Border.all(color: borderColor),
         boxShadow: [
           BoxShadow(
-            color: Color(0x000000).withOpacity(1),
-            offset: Offset(12, 13),
-            blurRadius: 18,
-            spreadRadius: -5,
+            color: Color(0x8B000000).withOpacity(1),
+            offset: Offset(6, 7),
+            blurRadius: 17,
+            spreadRadius: -1,
           )
         ]
       ),

@@ -64,8 +64,9 @@ class _LeftPortionState extends State<LeftPortion> {
                   )
                 ]
               ),
-              // child: CircleAvatar(
-              //   // child: Image.asset("assets/images/mks.jpeg"),
+              // child: Transform.scale(
+              //   scale: 1.0,
+              //   child: Image.asset("assets/images/mks.jpeg", height: 7,),
               // ),
             ),
             Column(

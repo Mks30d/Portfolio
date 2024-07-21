@@ -83,13 +83,14 @@ class Resume extends StatelessWidget {
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                          color: secondaryColor,
+                          color: blueColor,
                           borderRadius: BorderRadius.circular(11)),
                       child: Center(
-                        child: Icon(
-                          Icons.menu_book_outlined,
-                          color: blueColor,
-                        ),
+                        // child: Icon(
+                        //   Icons.menu_book_outlined,
+                        //   color: blueColor,
+                        // ),
+                        child: Image.asset("assets/images/education.png", height: 30,),
                       ),
                     ),
                   ),

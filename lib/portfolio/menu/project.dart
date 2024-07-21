@@ -29,14 +29,14 @@ class Project extends StatefulWidget {
 
 class _ProjectState extends State<Project> {
   List<String> images = [
-    "project-1.jpg",
-    "project-2.png",
-    "project-3.jpg",
-    "project-4.png",
-    "project-5.png",
     "project-6.png",
+    "project-5.jpg",
+    "project-1.png",
+    "project-2.png",
+    "project-3.png",
+    "project-4.png",
     "project-7.png",
-    "project-8.jpg",
+    "project-8.png",
     "project-9.png",
   ];
 
