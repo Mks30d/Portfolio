@@ -121,19 +121,20 @@ class Internship extends StatelessWidget {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                                color: secondaryColor,
+                                color: blueColor,
                                 borderRadius: BorderRadius.circular(10)),
                             child: Center(
-                              child: Icon(
-                                Icons.menu_book_outlined,
-                                color: blueColor,
-                              ),
+                              // child: Icon(
+                              //   Icons.menu_book_outlined,
+                              //   color: blueColor,
+                              // ),
+                              child: Image.asset("assets/images/employee.png", height: 28,),
                             ),
                           ),
                         ),
-                        line(30),
+                        line(25),
                         circle(),
-                        line(84),
+                        line(80),
                         circle(),
                       ],
                     ),
@@ -240,13 +241,14 @@ class Skills extends StatelessWidget {
                       width: 40,
                       height: 40,
                       decoration: BoxDecoration(
-                          color: secondaryColor,
+                          color: blueColor,
                           borderRadius: BorderRadius.circular(10)),
                       child: Center(
-                        child: Icon(
-                          Icons.menu_book_outlined,
-                          color: blueColor,
-                        ),
+                        // child: Icon(
+                        //   Icons.menu_book_outlined,
+                        //   color: blueColor,
+                        // ),
+                        child: Image.asset("assets/images/education.png", height: 30,),
                       ),
                     ),
 

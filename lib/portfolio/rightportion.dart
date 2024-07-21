@@ -17,9 +17,9 @@ import 'package:portfolio/portfolio/menu/resume.dart';
 // Color borderColor = Color(0xff444444);
 
 // TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
-TextStyle menuMainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 30, fontWeight: FontWeight.w600, fontFamily: "Poppins");
-TextStyle menuItemsHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 13, fontWeight: FontWeight.w500, fontFamily: "Poppins");
-TextStyle menuItemsHeadingStyle1 = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle menuMainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 24, fontWeight: FontWeight.w600, fontFamily: "Poppins");
+TextStyle menuItemsHeadingStyle = TextStyle(color: Color(0xffc0c0c0), fontSize: 13, fontWeight: FontWeight.w500, fontFamily: "Poppins");
+TextStyle menuItemsHeadingStyleSelected = TextStyle(color: Color(0xffffffff), fontSize: 13, fontWeight: FontWeight.w500, fontFamily: "Poppins");
 // TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
 // TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: "Poppins");
 // TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w300, fontFamily: "Poppins");
@@ -35,9 +35,9 @@ class _RightPortionState extends State<RightPortion> {
   //     fontSize: 15, fontWeight: FontWeight.w500, color: textPrimaryColor
   // );
   var calledSection = About();
-  int selectedIndex =3;
+  int selectedIndex =0;
   String heading = "About me";
-  double lineWidth = 150;
+  double lineWidth = 122;
   bool isHover = false;
   Map<int, Widget> selectedSection = {
     0 : About(),
@@ -102,7 +102,7 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=0;
                             selectedSection[selectedIndex];
                             heading = "About me";
-                            lineWidth = 150;
+                            lineWidth = 122;
                           });
                         },
                         onHover: (value) {
@@ -111,9 +111,23 @@ class _RightPortionState extends State<RightPortion> {
                             isHover = value;
                           });
                         },
-                        child: Text(
-                          "ABOUT",
-                          style: isHover ? menuItemsHeadingStyle1 : menuItemsHeadingStyle,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "ABOUT",
+                              // style: isHover ? menuItemsHeadingStyle1 : menuItemsHeadingStyle,
+                              style: selectedIndex==0 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
+                            ),
+                            // Container(
+                            //   width: 46,
+                            //   height: 2,
+                            //   decoration: BoxDecoration(
+                            //     color: Colors.white,
+                            //     borderRadius: BorderRadius.circular(50)
+                            //   ),
+                            // )
+                          ],
                         ),
                       ),
 
@@ -123,12 +137,13 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=1;
                             selectedSection[selectedIndex];
                             heading = "Internships";
-                            lineWidth = 170;
+                            lineWidth = 138;
                           });
                         },
                         child: Text(
                           "INTERNSHIP",
-                          style: menuItemsHeadingStyle,
+                          // style: menuItemsHeadingStyle,
+                          style: selectedIndex==1 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
                         ),
                       ),
 
@@ -138,12 +153,12 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=2;
                             selectedSection[selectedIndex];
                             heading = "Resume";
-                            lineWidth = 122;
+                            lineWidth = 100;
                           });
                         },
                         child: Text(
                           "RESUME",
-                          style: menuItemsHeadingStyle,
+                          style: selectedIndex==2 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
                         ),
                       ),
                       InkWell(
@@ -152,12 +167,12 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=3;
                             selectedSection[selectedIndex];
                             heading = "Projects";
-                            lineWidth = 120;
+                            lineWidth = 100;
                           });
                         },
                         child: Text(
                           "PROJECTS",
-                          style: menuItemsHeadingStyle,
+                          style: selectedIndex==3 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
                         ),
                       ),
                       InkWell(
@@ -166,12 +181,12 @@ class _RightPortionState extends State<RightPortion> {
                             selectedIndex=4;
                             selectedSection[selectedIndex];
                             heading = "Contact";
-                            lineWidth = 125;
+                            lineWidth = 103;
                           });
                         },
                         child: Text(
                           "CONTACT",
-                          style: menuItemsHeadingStyle,
+                          style: selectedIndex==4 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
                         ),
                       ),
 
@@ -183,7 +198,7 @@ class _RightPortionState extends State<RightPortion> {
               ),
               Positioned(
                   left: 20,
-                  top: 7,
+                  top: 15,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
