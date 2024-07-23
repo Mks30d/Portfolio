@@ -87,11 +87,27 @@ class _RightPortionState extends State<RightPortion> {
           this.itemLineWidth = itemLineWidth;
         });
       },
-      child: Text(
-        itemHeading.toUpperCase(),
-        style: this.selectedIndex == selectedIndex
-            ? menuItemsHeadingStyleSelected
-            : menuItemsHeadingStyle,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(
+            height: 0,
+          ),
+          Text(
+            itemHeading.toUpperCase(),
+            style: this.selectedIndex == selectedIndex
+                ? menuItemsHeadingStyleSelected
+                : menuItemsHeadingStyle,
+          ),
+          Container(
+            width: itemLineWidth,
+            height: this.selectedIndex == selectedIndex ? 3 : 0,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              // borderRadius: BorderRadius.circular(50)
+            ),
+          )
+        ],
       ),
     );
   }
@@ -126,106 +142,12 @@ class _RightPortionState extends State<RightPortion> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+
                       menuItem(0, "About me", "About", 122, 50),
                       menuItem(1, "Internships", "Internships", 138, 88),
                       menuItem(2, "Education", "Education", 125, 82),
                       menuItem(3, "Projects", "Projects", 100, 70),
 
-                      // InkWell(
-                      //   onTap: () {
-                      //     setState(() {
-                      //       // calledSection = Resume(),
-                      //       selectedIndex=0;
-                      //       selectedSection[selectedIndex];
-                      //       heading = "About me";
-                      //       lineWidth = 122;
-                      //     });
-                      //   },
-                      //   onHover: (value) {
-                      //     print("value= $value");
-                      //     setState(() {
-                      //       isHover = value;
-                      //     });
-                      //   },
-                      //   child: Column(
-                      //     mainAxisAlignment: MainAxisAlignment.center,
-                      //     children: [
-                      //       Text(
-                      //         "ABOUT",
-                      //         // style: isHover ? menuItemsHeadingStyle1 : menuItemsHeadingStyle,
-                      //         style: selectedIndex==0 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
-                      //       ),
-                      //       // Container(
-                      //       //   width: 46,
-                      //       //   height: 2,
-                      //       //   decoration: BoxDecoration(
-                      //       //     color: Colors.white,
-                      //       //     borderRadius: BorderRadius.circular(50)
-                      //       //   ),
-                      //       // )
-                      //     ],
-                      //   ),
-                      // ),
-
-                      // InkWell(
-                      //   onTap: (){
-                      //     setState(() {
-                      //       selectedIndex=1;
-                      //       selectedSection[selectedIndex];
-                      //       heading = "Internships";
-                      //       lineWidth = 138;
-                      //     });
-                      //   },
-                      //   child: Text(
-                      //     "INTERNSHIP",
-                      //     // style: menuItemsHeadingStyle,
-                      //     style: selectedIndex==1 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
-                      //   ),
-                      // ),
-
-                      // InkWell(
-                      //   onTap: (){
-                      //     setState(() {
-                      //       selectedIndex=2;
-                      //       selectedSection[selectedIndex];
-                      //       heading =  "Education";
-                      //       lineWidth = 125;
-                      //     });
-                      //   },
-                      //   child: Text(
-                      //     "Education".toUpperCase(),
-                      //     style: selectedIndex==2 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
-                      //   ),
-                      // ),
-
-                      // InkWell(
-                      //   onTap: (){
-                      //     setState(() {
-                      //       selectedIndex=3;
-                      //       selectedSection[selectedIndex];
-                      //       heading = "Projects";
-                      //       lineWidth = 100;
-                      //     });
-                      //   },
-                      //   child: Text(
-                      //     "PROJECTS",
-                      //     style: selectedIndex==3 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
-                      //   ),
-                      // ),
-                      // InkWell(
-                      //   onTap: (){
-                      //     setState(() {
-                      //       selectedIndex=4;
-                      //       selectedSection[selectedIndex];
-                      //       heading = "Contact";
-                      //       lineWidth = 103;
-                      //     });
-                      //   },
-                      //   child: Text(
-                      //     "CONTACT",
-                      //     style: selectedIndex==4 ? menuItemsHeadingStyleSelected : menuItemsHeadingStyle,
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),
