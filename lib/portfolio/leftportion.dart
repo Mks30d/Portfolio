@@ -132,49 +132,49 @@ class _LeftPortionState extends State<LeftPortion> {
                   ],
                 ),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                        onTap: () {
-                          launchUrl(
-                              Uri.parse("https://www.linkedin.com/in/mks30d"),
-                              mode: LaunchMode.externalApplication);
-                        },
-                        child: Image(
-                          image: AssetImage("assets/images/logo/linkedin4.png"),
-                          height: 25,
-                        )),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        launchUrl(Uri.parse("https://github.com/Mks30d"),
-                            mode: LaunchMode.externalApplication);
-                      },
-                      child: Image(
-                        image: AssetImage("assets/images/logo/github1.png"),
-                        height: 25,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        launchUrl(
-                          Uri.parse("https://leetcode.com/u/Mks30d/"),
-                          mode: LaunchMode.externalApplication,
-                        );
-                      },
-                      child: Image(
-                        image: AssetImage("assets/images/logo/leetcode.png"),
-                        height: 25,
-                      ),
-                    ),
-                  ],
-                )
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     InkWell(
+                //         onTap: () {
+                //           launchUrl(
+                //               Uri.parse("https://www.linkedin.com/in/mks30d"),
+                //               mode: LaunchMode.externalApplication);
+                //         },
+                //         child: Image(
+                //           image: AssetImage("assets/images/logo/linkedin4.png"),
+                //           height: 25,
+                //         )),
+                //     SizedBox(
+                //       width: 5,
+                //     ),
+                //     InkWell(
+                //       onTap: () {
+                //         launchUrl(Uri.parse("https://github.com/Mks30d"),
+                //             mode: LaunchMode.externalApplication);
+                //       },
+                //       child: Image(
+                //         image: AssetImage("assets/images/logo/github1.png"),
+                //         height: 25,
+                //       ),
+                //     ),
+                //     SizedBox(
+                //       width: 5,
+                //     ),
+                //     InkWell(
+                //       onTap: () {
+                //         launchUrl(
+                //           Uri.parse("https://leetcode.com/u/Mks30d/"),
+                //           mode: LaunchMode.externalApplication,
+                //         );
+                //       },
+                //       child: Image(
+                //         image: AssetImage("assets/images/logo/leetcode.png"),
+                //         height: 25,
+                //       ),
+                //     ),
+                //   ],
+                // )
 
               ],
             ),
