@@ -62,16 +62,20 @@ class _AboutState extends State<About> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  DoingDetails(title: "Flutter",image: Image.asset("assets/images/logo/Flutter-Dark.png")),
-                  DoingDetails(title: "Java",image: Image.asset("assets/images/logo/Java-Dark.png")),
+                  // DoingDetails(title: "Flutter",image: Image.asset("assets/images/logos/Flutter-Dark.png")),
+                  DoingDetails(title: "Flutter",image: Image.asset("assets/images/logos/flutter.png", width: 35,)),
+                  // DoingDetails(title: "Java",image: Image.asset("assets/images/logos/Java-Dark.png")),
+                  DoingDetails(title: "Java",image: Image.asset("assets/images/logos/java.png", width: 45,)),
                 ],
               ),
               SizedBox(height: 25,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  DoingDetails(image: Image.asset("assets/images/logo/AndroidStudio-Dark.png") ,title: "Mobile Apps", subtitle: "Professional development of applications for iOS and Android.",),
-                  DoingDetails(title: "DSA",image: Image.asset("assets/images/logo/Java-Dark.png")),
+                  // DoingDetails(image: Image.asset("assets/images/logos/AndroidStudio-Dark.png") ,title: "Mobile Apps", subtitle: "Professional development of applications for iOS and Android.",),
+                  // DoingDetails(image: Image.asset("assets/images/logos/AndroidStudio.png", width: 45,) ,title: "Mobile Apps", subtitle: "Professional development of applications for iOS and Android.",),
+                  DoingDetails(image: Image.asset("assets/images/icons/mobile-development(1).png", width: 40,) ,title: "Mobile Apps", subtitle: "Professional development of applications for iOS and Android.",),
+                  DoingDetails(title: "DSA",image: Image.asset("assets/images/logos/dsa(3).png", width: 35,)),
                 ],
               ),
             ],
@@ -137,12 +141,12 @@ class DoingDetails extends StatelessWidget {
                 width: 45,
                 height: 45,
                 decoration: BoxDecoration(
-                  color: primaryColor,
+                  // color: primaryColor,
                   borderRadius: BorderRadius.circular(11)
                 ),
                 child: Center(
                   // child: icon != null? icon: Icon(Icons.account_box),
-                  child: image != null ? image:Image.asset("assets/images/logo/Flutter-Dark.png"),
+                  child: image != null ? image : Image.asset("assets/images/logos/Flutter-Dark.png"),
                 ),
               ),
             ),

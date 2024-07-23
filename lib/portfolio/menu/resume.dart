@@ -90,7 +90,7 @@ class Resume extends StatelessWidget {
                         //   Icons.menu_book_outlined,
                         //   color: blueColor,
                         // ),
-                        child: Image.asset("assets/images/education.png", height: 30,),
+                        child: Image.asset("assets/images/icons/education(2).png", height: 30,),
                       ),
                     ),
                   ),

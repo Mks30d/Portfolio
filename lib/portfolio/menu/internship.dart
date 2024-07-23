@@ -109,7 +109,7 @@ class Internship extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Skills(),
+                // Skills(),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -128,7 +128,7 @@ class Internship extends StatelessWidget {
                               //   Icons.menu_book_outlined,
                               //   color: blueColor,
                               // ),
-                              child: Image.asset("assets/images/employee.png", height: 28,),
+                              child: Image.asset("assets/images/icons/internship(6).png", height: 28,),
                             ),
                           ),
                         ),
@@ -136,6 +136,7 @@ class Internship extends StatelessWidget {
                         circle(),
                         line(80),
                         circle(),
+                        // line(60),
                       ],
                     ),
                     SizedBox(
@@ -178,6 +179,9 @@ class Internship extends StatelessWidget {
                     )
                   ],
                 ),
+
+                Skills(),
+
               ],
             ),
           )),
@@ -193,31 +197,35 @@ class Skills extends StatelessWidget {
 
   Widget skills(String image, String title) {
     return Padding(
-      padding: const EdgeInsets.only(left: 5, right: 7, top: 5, bottom: 7),
+      padding: const EdgeInsets.only(left: 0, right: 0, top: 0, bottom: 7),
       child: Container(
         // width: 55,
         // height: 55,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(11)),
         child: Center(
-          child: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(boxShadow: [
-                  BoxShadow(
-                    color: Color(0x000000).withOpacity(1),
-                    offset: Offset(12, 13),
-                    blurRadius: 18,
-                    spreadRadius: -5,
-                  )
-                ]),
-                child: Image.asset("assets/images/logo/${image}", height: 45,),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 3,bottom: 4),
-                child: Text("${title}", style: TextStyle(color: textPrimaryColor),),
-              )
-            ],
+          child: Container(
+            width: 92,
+            // color: Colors.deepPurpleAccent,
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(boxShadow: [
+                    BoxShadow(
+                      color: Color(0x000000).withOpacity(1),
+                      offset: Offset(12, 13),
+                      blurRadius: 18,
+                      spreadRadius: -5,
+                    )
+                  ]),
+                  child: Image.asset("assets/images/logos/$image", height: 45,),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 3,bottom: 4),
+                  child: Text(title, style: TextStyle(color: textPrimaryColor),),
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -248,7 +256,7 @@ class Skills extends StatelessWidget {
                         //   Icons.menu_book_outlined,
                         //   color: blueColor,
                         // ),
-                        child: Image.asset("assets/images/education.png", height: 30,),
+                        child: Image.asset("assets/images/icons/skill(2).png", height: 32,),
                       ),
                     ),
 
