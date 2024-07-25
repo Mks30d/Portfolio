@@ -14,12 +14,22 @@ import 'package:url_launcher/url_launcher.dart';
 // Color borderColor = Color(0xff444444);
 
 // TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
-TextStyle menuMainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
-TextStyle menuItemsHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
-TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
-TextStyle titleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: "Poppins");
-TextStyle subtitleStyle = TextStyle(color: textPrimaryColor, fontSize: 15, fontWeight: FontWeight.w300, fontFamily: "Poppins");
 
+TextStyle mainHeadingStyle = TextStyle(
+    color: textPrimaryColor,
+    fontSize: 32,
+    fontWeight: FontWeight.w600,
+    fontFamily: "Poppins");
+TextStyle titleStyle = TextStyle(
+    color: textPrimaryColor,
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+    fontFamily: "Poppins");
+TextStyle subtitleStyle = TextStyle(
+    color: textPrimaryColor,
+    fontSize: 15,
+    fontWeight: FontWeight.w300,
+    fontFamily: "Poppins");
 
 class LeftPortion extends StatefulWidget {
   // Color textColor = Color(0xfffafafa);
@@ -35,6 +45,23 @@ class LeftPortion extends StatefulWidget {
 }
 
 class _LeftPortionState extends State<LeftPortion> {
+
+  bool isHovering = false;
+
+  Widget socialmedia(String link, String image) {
+    return InkWell(
+        onTap: () {
+          launchUrl(
+              Uri.parse(link),
+              mode: LaunchMode.externalApplication
+          );
+        },
+        child: Image(
+          image: AssetImage("assets/images/$image"),
+          height: 25,
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -53,21 +80,23 @@ class _LeftPortionState extends State<LeftPortion> {
               height: 70,
               width: 70,
               decoration: BoxDecoration(
-                color: secondaryColor,
-                borderRadius: BorderRadius.circular(22),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0x000000).withOpacity(1),
-                    offset: Offset(0, 0),
-                    blurRadius: 14,
-                    spreadRadius: 2,
-                  )
-                ]
+                  color: secondaryColor,
+                  borderRadius: BorderRadius.circular(18),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x8B000000).withOpacity(1),
+                      offset: Offset(6, 7),
+                      blurRadius: 11,
+                      spreadRadius: 2,
+                    )
+                  ]),
+              child: Transform.scale(
+                scale: 1.0,
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(18),
+                    child: Image.asset("assets/images/Mks1.jpg",)
+                ),
               ),
-              // child: Transform.scale(
-              //   scale: 1.0,
-              //   child: Image.asset("assets/images/mks.jpeg", height: 7,),
-              // ),
             ),
             Column(
               children: [
@@ -78,106 +107,83 @@ class _LeftPortionState extends State<LeftPortion> {
                       fontSize: 18,
                       fontWeight: FontWeight.bold),
                 ),
-                // Text(
-                //   "SHARMA",
-                //   style: TextStyle(
-                //       color: textPrimaryColor,
-                //       fontSize: 20,
-                //       fontWeight: FontWeight.bold),
-                // ),
+                Text(
+                  "App Developer",
+                  style: TextStyle(
+                      color: textPrimaryColor,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400),
+                ),
                 SizedBox(
-                  height: 10,
+                  height: 12,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    InkWell(
-                        onTap: () {
-                          launchUrl(
-                              Uri.parse("https://www.linkedin.com/in/mks30d"),
-                              mode: LaunchMode.externalApplication);
-                        },
-                        child: Image(
-                          image: AssetImage("assets/images/linkedin.png"),
-                          height: 25,
-                        )),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        launchUrl(Uri.parse("https://github.com/Mks30d"),
-                            mode: LaunchMode.externalApplication);
-                      },
-                      child: Image(
-                        image: AssetImage("assets/images/github.png"),
-                        height: 25,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    InkWell(
-                      onTap: () {
-                        launchUrl(
-                          Uri.parse("https://leetcode.com/u/Mks30d/"),
-                          mode: LaunchMode.externalApplication,
-                        );
-                      },
-                      child: Image(
-                        image: AssetImage("assets/images/leetcode.png"),
-                        height: 25,
-                      ),
-                    ),
+                    socialmedia("https://www.linkedin.com/in/mks30d", "linkedin.png"),
+                    SizedBox(width: 6,),
+                    socialmedia("https://github.com/Mks30d", "github.png"),
+                    SizedBox(width: 6,),
+                    socialmedia("https://leetcode.com/u/Mks30d/", "leetcode.png"),
+
+                    // InkWell(
+                    //     onTap: () {
+                    //       launchUrl(
+                    //           Uri.parse("https://www.linkedin.com/in/mks30d"),
+                    //           mode: LaunchMode.externalApplication);
+                    //     },
+                    //     child: Image(
+                    //       image: AssetImage("assets/images/linkedin.png"),
+                    //       height: 25,
+                    //     )),
+
                   ],
                 ),
 
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     InkWell(
-                //         onTap: () {
-                //           launchUrl(
-                //               Uri.parse("https://www.linkedin.com/in/mks30d"),
-                //               mode: LaunchMode.externalApplication);
-                //         },
-                //         child: Image(
-                //           image: AssetImage("assets/images/logo/linkedin4.png"),
-                //           height: 25,
-                //         )),
-                //     SizedBox(
-                //       width: 5,
-                //     ),
-                //     InkWell(
-                //       onTap: () {
-                //         launchUrl(Uri.parse("https://github.com/Mks30d"),
-                //             mode: LaunchMode.externalApplication);
-                //       },
-                //       child: Image(
-                //         image: AssetImage("assets/images/logo/github1.png"),
-                //         height: 25,
-                //       ),
-                //     ),
-                //     SizedBox(
-                //       width: 5,
-                //     ),
-                //     InkWell(
-                //       onTap: () {
-                //         launchUrl(
-                //           Uri.parse("https://leetcode.com/u/Mks30d/"),
-                //           mode: LaunchMode.externalApplication,
-                //         );
-                //       },
-                //       child: Image(
-                //         image: AssetImage("assets/images/logo/leetcode.png"),
-                //         height: 25,
-                //       ),
-                //     ),
-                //   ],
-                // )
+                SizedBox(height: 12,),
 
+                InkWell(
+                  onTap: () {
+                    launchUrl(
+                        Uri.parse("https://drive.google.com/file/d/1Rw4RxO29GeF8gmwJtImdjkRg4AKPKI6j/view?usp=drive_link"),
+                        mode: LaunchMode.externalApplication
+                    );
+                  },
+
+                  onHover: (value) {
+                    setState(() {
+                      isHovering = value;
+                    });
+                  },
+                  child: Container(
+                    width: 90,
+                    height: 28,
+                    decoration: BoxDecoration(
+                      color: isHovering ? blueColor : Color(0xff0148b4),
+                      borderRadius: BorderRadius.circular(3),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0x000000).withOpacity(1),
+                          offset: Offset(5, 5),
+                          blurRadius: 7,
+                          spreadRadius: 2,
+                        )
+                      ]
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Icon(Icons.download_sharp, color: textPrimaryColor, size: 18,),
+                        Image.asset("assets/images/icons/download(1).png", height: 12,),
+                        SizedBox(width: 5,),
+                        Text("Resume", style: TextStyle(color: textPrimaryColor),)
+                      ],
+                    ),
+                  ),
+                )
               ],
             ),
+
             Divider(
               // height: 2,
               thickness: 1,
@@ -185,46 +191,41 @@ class _LeftPortionState extends State<LeftPortion> {
               endIndent: 15,
               color: secondaryColor,
             ),
+
             InkWell(
-              onTap: (){
-                launchUrl(
-                    Uri(scheme: "mailto", path: "manish30d@gmail.com"),
-                    mode: LaunchMode.externalApplication
-                );
+              onTap: () {
+                launchUrl(Uri(scheme: "mailto", path: "manish30d@gmail.com"),
+                    mode: LaunchMode.externalApplication);
               },
               child: CustomContainer(
                 title: "Email",
                 subtitle: "manish30d@gmail.com",
                 icon: Icon(
                   Icons.email_outlined,
-                  color: blueColor,
+                  color: Colors.black,
                 ),
               ),
             ),
-
             InkWell(
-              onTap: (){
-                launchUrl(
-                    Uri(scheme: "tel", path: "7897739391"),
-                    mode: LaunchMode.externalApplication
-                );
+              onTap: () {
+                launchUrl(Uri(scheme: "tel", path: "7897739391"),
+                    mode: LaunchMode.externalApplication);
               },
               child: CustomContainer(
                 title: "Phone",
                 subtitle: "+91 7897739391",
                 icon: Icon(
                   Icons.phone,
-                  color: blueColor,
+                  color: Colors.black,
                 ),
               ),
             ),
-
             CustomContainer(
               title: "Birthday",
               subtitle: "30 Dec, 2000",
               icon: Icon(
                 Icons.calendar_month,
-                color: blueColor,
+                color: Colors.black,
               ),
             ),
             CustomContainer(
@@ -232,7 +233,7 @@ class _LeftPortionState extends State<LeftPortion> {
               subtitle: "Noida, India",
               icon: Icon(
                 Icons.location_on_outlined,
-                color: blueColor,
+                color: Colors.black,
               ),
             ),
           ],
@@ -257,8 +258,7 @@ class CustomContainer extends StatelessWidget {
   });
 
   static void defaultFunction() {
-    launchUrl(
-        Uri.parse("https://google.com/"),
+    launchUrl(Uri.parse("https://google.com/"),
         mode: LaunchMode.externalApplication);
   }
 
@@ -274,9 +274,8 @@ class CustomContainer extends StatelessWidget {
               width: 35,
               height: 35,
               decoration: BoxDecoration(
-                  color: secondaryColor,
-                  borderRadius: BorderRadius.circular(11)
-              ),
+                  color: blueColor,
+                  borderRadius: BorderRadius.circular(11)),
               child: icon,
             ),
           ),
