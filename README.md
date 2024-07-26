@@ -1,6 +1,6 @@
 # portfolio
 
-# https://mks30d.github.io/
+# mks30d.github.io/
 
 A new Flutter project.
 
