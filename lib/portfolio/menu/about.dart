@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/portfolio/landingpage.dart';
+import 'package:Mks/portfolio/landingpage.dart';
 
 // TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
 TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 24, fontWeight: FontWeight.w800, fontFamily: "Poppins");
@@ -32,13 +32,13 @@ class _AboutState extends State<About> {
             ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 22, right: 22, bottom: 22),
+        padding: const EdgeInsets.only(left: 22, right: 25, bottom: 22),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media. I enjoy turning complex problems into simple, beautiful and intuitive designs.",
+                "I'm Manish Kumar Sharma, a Mobile App Developer from Noida, India. I’m currently enhancing my skills in Java, Flutter, and DSA, and working on a Student Management App with a modern UI. My portfolio includes projects like a Doctor Appointment Tracker, Weather Web App, Note Taking Web App, and Covid-19 Tracker App.",
                 style: subtitleStyle,
               ),
               const SizedBox(
@@ -63,9 +63,9 @@ class _AboutState extends State<About> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   // DoingDetails(title: "Flutter",image: Image.asset("assets/images/logos/Flutter-Dark.png")),
-                  DoingDetails(title: "Flutter",image: Image.asset("assets/images/logos/flutter.png", width: 35,)),
+                  DoingDetails(title: "Flutter",subtitle: "I am mastering Flutter, focusing on dynamic and modern mobile app interfaces.", image: Image.asset("assets/images/logos/flutter.png", width: 35, ), ),
                   // DoingDetails(title: "Java",image: Image.asset("assets/images/logos/Java-Dark.png")),
-                  DoingDetails(title: "Java",image: Image.asset("assets/images/logos/java.png", width: 45,)),
+                  DoingDetails(title: "Java",subtitle: "I am advancing my Java skills, enhancing backend systems and application functionality.", image: Image.asset("assets/images/logos/java.png", width: 45,)),
                 ],
               ),
               SizedBox(height: 25,),
@@ -74,8 +74,8 @@ class _AboutState extends State<About> {
                 children: [
                   // DoingDetails(image: Image.asset("assets/images/logos/AndroidStudio-Dark.png") ,title: "Mobile Apps", subtitle: "Professional development of applications for iOS and Android.",),
                   // DoingDetails(image: Image.asset("assets/images/logos/AndroidStudio.png", width: 45,) ,title: "Mobile Apps", subtitle: "Professional development of applications for iOS and Android.",),
-                  DoingDetails(image: Image.asset("assets/images/icons/mobile-development(1).png", width: 40,) ,title: "Mobile Apps", subtitle: "Professional development of applications for iOS and Android.",),
-                  DoingDetails(title: "DSA",image: Image.asset("assets/images/logos/dsa(3).png", width: 35,)),
+                  DoingDetails(title: "Mobile Apps", subtitle: "Creating user-friendly mobile apps, currently developing a Student Management App.", image: Image.asset("assets/images/icons/mobile-development(1).png", width: 40,) ,),
+                  DoingDetails(title: "DSA",subtitle: "I am improving my problem-solving skills by deepening my knowledge of data structures and algorithms.", image: Image.asset("assets/images/logos/dsa(3).png", width: 35,)),
                 ],
               ),
             ],
@@ -125,18 +125,15 @@ class DoingDetails extends StatelessWidget {
           )
         ]
       ),
-      child: ConstrainedBox(
-        constraints: const BoxConstraints(
-          minWidth: 330,
-          maxWidth: 360,
-          minHeight: 100,
-        ),
+      child: Container(
+          width: 350,
+          // height: 100,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 18, right: 15),
+              padding: EdgeInsets.only(left: 15, right: 15),
               child: Container(
                 width: 45,
                 height: 45,
@@ -152,7 +149,7 @@ class DoingDetails extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(top: 25, bottom: 20, right: 15),
+                padding: const EdgeInsets.only(top: 15, bottom: 15, right: 5),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,

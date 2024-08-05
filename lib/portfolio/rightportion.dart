@@ -50,7 +50,9 @@ class _RightPortionState extends State<RightPortion> {
   String mainHeading = "About me";
   double mainLineWidth = 122;
   double itemLineWidth = 122;
-  bool isHover = false;
+  bool isHovering = false;
+  int hoveringIndex = -1;
+
   Map<int, Widget> selectedSection = {
     0: About(),
     1: Internship(),
@@ -87,17 +89,43 @@ class _RightPortionState extends State<RightPortion> {
           this.itemLineWidth = itemLineWidth;
         });
       },
+      onHover: (value) {
+        setState(() {
+          isHovering = value;
+          hoveringIndex = value ? selectedIndex : -1;
+          print(hoveringIndex);
+        });
+      },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            height: 0,
-          ),
+          Container(
+              // // height: hoveringIndex==selectedIndex ? 10:0,
+              // width: 50,
+              // color: Colors.red,
+              ),
           Text(
             itemHeading.toUpperCase(),
-            style: this.selectedIndex == selectedIndex
+
+            style: (this.selectedIndex == selectedIndex)
                 ? menuItemsHeadingStyleSelected
-                : menuItemsHeadingStyle,
+                : (hoveringIndex == selectedIndex)
+                    ? menuItemsHeadingStyleSelected
+                    : menuItemsHeadingStyle,
+
+            //------OR-------
+            //   style: () {
+            //   if(hoveringIndex==selectedIndex){
+            //     return menuItemsHeadingStyleSelected;
+            //   }
+            //     else{
+            //     if (this.selectedIndex == selectedIndex) {
+            //       return menuItemsHeadingStyleSelected;
+            //     } else {
+            //       return menuItemsHeadingStyle;
+            //     }
+            //   }
+            // }(),
           ),
           Container(
             width: itemLineWidth,
@@ -142,12 +170,10 @@ class _RightPortionState extends State<RightPortion> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-
                       menuItem(0, "About me", "About", 122, 50),
                       menuItem(1, "Internships", "Internships", 138, 88),
                       menuItem(2, "Education", "Education", 125, 82),
                       menuItem(3, "Projects", "Projects", 100, 70),
-
                     ],
                   ),
                 ),
