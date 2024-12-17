@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:portfolio/portfolio/landingpage.dart';
-import 'package:portfolio/portfolio/menu/about.dart';
-import 'package:portfolio/portfolio/menu/contact.dart';
-import 'package:portfolio/portfolio/menu/internship.dart';
-import 'package:portfolio/portfolio/menu/project.dart';
-import 'package:portfolio/portfolio/menu/resume.dart';
+import 'package:Mks/portfolio/landingpage.dart';
+import 'package:Mks/portfolio/menu/about.dart';
+import 'package:Mks/portfolio/menu/contact.dart';
+import 'package:Mks/portfolio/menu/internship.dart';
+import 'package:Mks/portfolio/menu/project.dart';
+import 'package:Mks/portfolio/menu/resume.dart';
 
 // Color textPrimaryColor = Color(0xffe7e7e7);
 // Color textSecondaryColor = Color(0xff8e8e8f);
@@ -46,7 +46,7 @@ class _RightPortionState extends State<RightPortion> {
   //     fontSize: 15, fontWeight: FontWeight.w500, color: textPrimaryColor
   // );
   var calledSection = About();
-  int selectedIndex = 3;
+  int selectedIndex = 0;
   String mainHeading = "About me";
   double mainLineWidth = 122;
   double itemLineWidth = 122;

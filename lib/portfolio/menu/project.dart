@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:portfolio/portfolio/landingpage.dart';
+import 'package:Mks/portfolio/landingpage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 TextStyle mainHeadingStyle = TextStyle(
