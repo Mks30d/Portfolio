@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/portfolio/leftportion.dart';
-import 'package:portfolio/portfolio/rightportion.dart';
-import 'package:portfolio/portfolio/sidebar.dart';
+import 'package:Mks/portfolio/leftportion.dart';
+import 'package:Mks/portfolio/rightportion.dart';
+import 'package:Mks/portfolio/sidebar.dart';
 
 Color textPrimaryColor = Color(0xffe7e7e7);
 // Color textSecondaryColor = Color(0xff8e8e8f);

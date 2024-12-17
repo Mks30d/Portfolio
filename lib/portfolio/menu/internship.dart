@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/portfolio/landingpage.dart';
+import 'package:Mks/portfolio/landingpage.dart';
 
 // TextStyle textStyle = TextStyle(color: textPrimaryColor, fontSize: 32, fontWeight: FontWeight.w600, fontFamily: "Poppins");
 TextStyle mainHeadingStyle = TextStyle(color: textPrimaryColor, fontSize: 23, fontWeight: FontWeight.w800, fontFamily: "Poppins");
@@ -309,6 +309,7 @@ class Skills extends StatelessWidget {
               skills(image[4], title[4]),
             ],
           ),
+          SizedBox(height: 11,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -321,6 +322,8 @@ class Skills extends StatelessWidget {
               skills(image[11], title[11]),
             ],
           ),
+
+          SizedBox(height: 50),
 
           // GridView.builder(
           //   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
